@@ -330,7 +330,12 @@ def click_verify_upstream(driver: WebDriver, num_tabs: int = 1):
 
     time.sleep(2)
 
-def _get_turnstile_token(driver: WebDriver, tabs: int):
+def _get_turnstile_wait_budget_seconds(max_timeout_ms: int) -> float:
+    max_timeout_seconds = max_timeout_ms / 1000.0
+    return min(max(15.0, max_timeout_seconds / 2.0), max_timeout_seconds)
+
+
+def _get_turnstile_token(driver: WebDriver, tabs: int, max_timeout_ms: int):
     current_value = None
     try:
         token_input = driver.find_element(By.CSS_SELECTOR, "input[name='cf-turnstile-response']")
@@ -338,7 +343,12 @@ def _get_turnstile_token(driver: WebDriver, tabs: int):
     except Exception:
         pass
 
-    while True:
+    wait_budget_seconds = _get_turnstile_wait_budget_seconds(max_timeout_ms)
+    deadline = time.monotonic() + wait_budget_seconds
+    attempt = 0
+
+    while time.monotonic() < deadline:
+        attempt = attempt + 1
         click_verify_upstream(driver, num_tabs=tabs)
         try:
             token_input = driver.find_element(By.CSS_SELECTOR, "input[name='cf-turnstile-response']")
@@ -359,7 +369,13 @@ def _get_turnstile_token(driver: WebDriver, tabs: int):
             document.body.prepend(el);
             el.focus();
         """)
-        time.sleep(1)
+        if time.monotonic() < deadline:
+            time.sleep(min(1.0, max(0.5, (deadline - time.monotonic()) / 2.0)))
+
+    logging.warning(
+        f"Timed out after {wait_budget_seconds:.1f}s waiting for Turnstile token after {attempt} attempts"
+    )
+    return None
 
 def _resolve_turnstile_captcha(req: V1RequestBase, driver: WebDriver):
     turnstile_token = None
@@ -375,7 +391,11 @@ def _resolve_turnstile_captcha(req: V1RequestBase, driver: WebDriver):
                 logging.info("Turnstile challenge detected. Selector found: " + selector)
                 break
         if turnstile_challenge_found:
-            turnstile_token = _get_turnstile_token(driver=driver, tabs=req.tabs_till_verify)
+            turnstile_token = _get_turnstile_token(
+                driver=driver,
+                tabs=req.tabs_till_verify,
+                max_timeout_ms=int(req.maxTimeout) if req.maxTimeout is not None else 60000,
+            )
         else:
             logging.debug(f'Turnstile challenge not found')
     return turnstile_token
