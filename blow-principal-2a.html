@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blow — Principal (2a Editorial)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F0EEE9;display:flex;justify-content:center;padding:24px}a{color:#5457F0}</style>
+</head>
+<body>
+
+<!-- Tela 390×844 · iPhone 14/15 · light mode -->
+<div style="width:390px;height:844px;display:flex;flex-direction:column;background:#FDFDFE;font-family:'Instrument Sans',system-ui,sans-serif;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.15)">
+
+  <!-- Header: safe area topo + região + ações + chips + contagem -->
+  <div style="padding:62px 20px 0;flex:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:48px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="assets/blow-logo.png" alt="Blow" style="width:26px;height:24px;object-fit:contain">
+        <span style="display:flex;align-items:baseline;gap:5px">
+          <span style="font-size:21px;font-weight:600;color:#16161D;letter-spacing:-0.4px">Salvador</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 10l6 6 6-6" stroke="#16161D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+      </div>
+      <div style="display:flex;gap:2px">
+        <span style="width:44px;height:44px;display:flex;align-items:center;justify-content:center">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="#16161D" stroke-width="1.6"></circle><path d="M16 16l4.5 4.5" stroke="#16161D" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        </span>
+        <span style="width:44px;height:44px;display:flex;align-items:center;justify-content:center">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M12 20.2S4.6 15.4 4.6 10.4C4.6 7.9 6.6 6 9 6c1.2 0 2.3.5 3 1.4C12.7 6.5 13.8 6 15 6c2.4 0 4.4 1.9 4.4 4.4 0 5-7.4 9.8-7.4 9.8z" stroke="#16161D" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+        </span>
+      </div>
+    </div>
+    <div style="display:flex;gap:6px;padding:10px 0 4px;overflow-x:auto">
+      <span style="flex:none;height:34px;display:flex;align-items:center;gap:6px;padding:0 13px;border-radius:17px;border:1px solid #16161D;color:#16161D;font-size:13px;font-weight:600">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 7h10M18 7h2M4 17h4M12 17h8" stroke="#16161D" stroke-width="1.8" stroke-linecap="round"></path><circle cx="16" cy="7" r="2.2" stroke="#16161D" stroke-width="1.8"></circle><circle cx="9.5" cy="17" r="2.2" stroke="#16161D" stroke-width="1.8"></circle></svg>
+        Filtros
+      </span>
+      <span style="flex:none;height:34px;display:flex;align-items:center;padding:0 13px;border-radius:17px;border:1px solid #E7E7EF;color:#4A4A57;font-size:13px;font-weight:500">Na planta</span>
+      <span style="flex:none;height:34px;display:flex;align-items:center;padding:0 13px;border-radius:17px;border:1px solid #E7E7EF;color:#4A4A57;font-size:13px;font-weight:500">Pronto</span>
+      <span style="flex:none;height:34px;display:flex;align-items:center;padding:0 13px;border-radius:17px;border:1px solid #E7E7EF;color:#4A4A57;font-size:13px;font-weight:500">Até R$ 500 mil</span>
+      <span style="flex:none;height:34px;display:flex;align-items:center;padding:0 13px;border-radius:17px;border:1px solid #E7E7EF;color:#4A4A57;font-size:13px;font-weight:500">2 dorm</span>
+    </div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;padding:10px 0 2px">
+      <span style="font-size:12.5px;color:#87878F">128 imóveis</span>
+      <span style="font-size:12.5px;font-weight:600;color:#5457F0">Relevância ↓</span>
+    </div>
+  </div>
+
+  <!-- Lista editorial: sem cards, divisórias finas -->
+  <div style="flex:1;overflow-y:auto;padding:6px 20px 0;display:flex;flex-direction:column">
+
+    <div style="padding:14px 0 20px;flex:none">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+        <span style="font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;color:#16161D;letter-spacing:-0.2px">Mirante Paralela</span>
+        <span style="display:flex;align-items:center;gap:5px;flex:none;font-size:11.5px;font-weight:500;color:#5457F0"><span style="width:5px;height:5px;border-radius:3px;background:#5457F0"></span>Na planta</span>
+      </div>
+      <div style="font-size:13px;color:#87878F;margin-top:2px">Paralela, Salvador · Construtora Alvorada</div>
+      <div style="position:relative;margin-top:12px;aspect-ratio:3/2;border-radius:10px;overflow:hidden;background:repeating-linear-gradient(45deg,#EBEBF4 0px,#EBEBF4 10px,#F4F4FA 10px,#F4F4FA 20px);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:ui-monospace,Menlo,monospace;font-size:10px;color:#8B8BA0">foto fachada · swipe · 1/8</span>
+        <span style="position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:17px;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 20.2S4.6 15.4 4.6 10.4C4.6 7.9 6.6 6 9 6c1.2 0 2.3.5 3 1.4C12.7 6.5 13.8 6 15 6c2.4 0 4.4 1.9 4.4 4.4 0 5-7.4 9.8-7.4 9.8z" stroke="#16161D" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+        </span>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-top:12px">
+        <span style="font-size:13.5px;color:#4A4A57">2 e 3 dorm · 58–92 m² · 1–2 vagas</span>
+        <span style="font-size:16px;font-weight:700;color:#16161D;letter-spacing:-0.2px"><span style="font-size:11px;font-weight:500;color:#87878F;letter-spacing:0">a partir de </span>R$ 489.000</span>
+      </div>
+    </div>
+
+    <div style="height:1px;background:#EDEDF3;flex:none"></div>
+
+    <div style="padding:20px 0;flex:none">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+        <span style="font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;color:#16161D;letter-spacing:-0.2px">Jardins de Ondina</span>
+        <span style="display:flex;align-items:center;gap:5px;flex:none;font-size:11.5px;font-weight:500;color:#B45309"><span style="width:5px;height:5px;border-radius:3px;background:#D97706"></span>Em construção</span>
+      </div>
+      <div style="font-size:13px;color:#87878F;margin-top:2px">Ondina, Salvador · Vetra Incorporadora</div>
+      <div style="position:relative;margin-top:12px;aspect-ratio:3/2;border-radius:10px;overflow:hidden;background:repeating-linear-gradient(45deg,#EBF0EC 0px,#EBF0EC 10px,#F3F8F4 10px,#F3F8F4 20px);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:ui-monospace,Menlo,monospace;font-size:10px;color:#8B9A8E">foto área de lazer</span>
+        <span style="position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:17px;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 20.2S4.6 15.4 4.6 10.4C4.6 7.9 6.6 6 9 6c1.2 0 2.3.5 3 1.4C12.7 6.5 13.8 6 15 6c2.4 0 4.4 1.9 4.4 4.4 0 5-7.4 9.8-7.4 9.8z" fill="#5457F0"></path></svg>
+        </span>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-top:12px">
+        <span style="font-size:13.5px;color:#4A4A57">3 e 4 dorm · 96–142 m² · 2 vagas</span>
+        <span style="font-size:16px;font-weight:700;color:#16161D;letter-spacing:-0.2px"><span style="font-size:11px;font-weight:500;color:#87878F;letter-spacing:0">a partir de </span>R$ 968.000</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Tab bar fixa (fora do scroll) + safe area inferior -->
+  <div style="flex:none;background:rgba(253,253,254,0.97);border-top:1px solid #EDEDF3;padding:8px 8px 30px;display:flex">
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:44px;justify-content:center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4.5 10.5L12 4l7.5 6.5V20h-5.4v-5h-4.2v5H4.5v-9.5z" stroke="#5457F0" stroke-width="1.8" stroke-linejoin="round"></path></svg>
+      <span style="font-size:10px;font-weight:600;color:#5457F0">Principal</span>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:44px;justify-content:center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-6.5-5.4-6.5-10.3C5.5 7 8.4 4.3 12 4.3s6.5 2.7 6.5 6.4C18.5 15.6 12 21 12 21z" stroke="#9494A0" stroke-width="1.6" stroke-linejoin="round"></path><circle cx="12" cy="10.6" r="2.3" stroke="#9494A0" stroke-width="1.6"></circle></svg>
+      <span style="font-size:10px;font-weight:500;color:#9494A0">Mapa</span>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:44px;justify-content:center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="6" y="4.5" width="12" height="15.5" rx="1.5" stroke="#9494A0" stroke-width="1.6"></rect><path d="M9.5 8.5h1.6M13 8.5h1.6M9.5 12h1.6M13 12h1.6M10.5 20v-3.5h3V20" stroke="#9494A0" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      <span style="font-size:10px;font-weight:500;color:#9494A0">Construtoras</span>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:44px;justify-content:center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2" fill="#9494A0"></circle><path d="M12 6a6 6 0 016 6M12 2.8A9.2 9.2 0 0121.2 12" stroke="#9494A0" stroke-width="1.6" stroke-linecap="round"></path><path d="M12 12l-5 5" stroke="#9494A0" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      <span style="font-size:10px;font-weight:500;color:#9494A0">Radar</span>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:44px;justify-content:center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8.4" r="3.4" stroke="#9494A0" stroke-width="1.6"></circle><path d="M5.2 19.6c1-3.1 3.6-4.8 6.8-4.8s5.8 1.7 6.8 4.8" stroke="#9494A0" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      <span style="font-size:10px;font-weight:500;color:#9494A0">Perfil</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
